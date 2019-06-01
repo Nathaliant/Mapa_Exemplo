@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="utf-8">
+	<title>Mapa</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+	<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+
+	<link href="estilo.css" rel="stylesheet">
+</head>
+
+<body ng-app="myapp">
+
+	<div ng-controller="cepController" class="container-fluid">
+
+		<div class="jumbotron" style="margin-top: 5%;">
+			<div class="row">
+				<div class="col-lg-7">
+
+					<form class="form-horizontal" method="post" name="form">
+						<fieldset>
+							<div class="form-group">
+								<label class="col-lg-1 control-label font-form">CEP</label>
+								<div class="col-lg-10">
+									<input type="text" class="form-control" ng-model="cep" placeholder="Somente números">
+								</div>
+								<div class="col-lg-1">
+									<button type="submit" class="btn btn-primary btn-sm" ng-click="endereco.doClick(item, $event)" >
+									<span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+								</div>
+							</div>
+							<br>
+							<br>
+
+							<div class="form-group">
+								<label class="col-lg-1 control-label font-form">Rua</label>
+								<div class="col-lg-8">
+									<input type="text" id="logradouro" class="form-control" ng-model="endereco.logradouro" disabled=""><br>
+								</div>
+								<label class="col-lg-1 control-label font-form">Numero</label>
+								<div class="col-lg-2">
+									<input type="text" id="numero" class="form-control" ng-model="numero"><br>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="col-lg-1 control-label font-form">Bairro</label>
+								<div class="col-lg-6">
+									<input type="text" id="bairro" class="form-control" ng-model="endereco.bairro" disabled=""><br>
+								</div>
+								<label class="col-lg-2 control-label font-form">Complemento</label>
+								<div class="col-lg-3">
+									<input type="text" class="form-control" ng-model="complemento"><br>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="col-lg-1 control-label font-form">Cidade</label>
+								<div class="col-lg-8">
+									<input type="text" id="cidade" class="form-control" ng-model="endereco.cidade" disabled=""><br>
+								</div>
+								<label class="col-lg-1 control-label font-form">UF</label>
+								<div class="col-lg-2">
+									<input type="text" id="uf" class="form-control" ng-model="endereco.estado" disabled=""><br>
+								</div>
+							</div>
+							<p style="text-align:right;">
+								<input type="submit" class="btn btn-primary btn-sm" id="btnMaps" value="Mostrar no mapa"/>
+							</p>
+
+						</fieldset>
+					</form>
+				</div> <!-- /container meio - formulario-->
+
+				<div class="col-lg-5">
+					<div id="mapa" style="height: 328px; width: 100%">
+				</div>
+
+			</div> <!-- /row -->
+		</div> <!-- /jumbotron -->
+	</div> <!-- /container -->
+
+</body>
+
+
+<!-- Bootstrap Javascript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Maps API Javascript -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHIUcekgvqG13i5UbxF5M8YQExsnzqYow&callback=initMap"></script>
+
+<!-- Inicialização do mapa -->
+<script src="mapa.js"></script>
+
+<!-- Consulta CEP -->
+<script src="buscaCep.js"></script>
+
+</html>
